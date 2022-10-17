@@ -11,22 +11,22 @@ public class config {
 
     @Bean
     public EmbeddedServletContainerFactory getEmbeddedServletContainerFactory() {
-		TomcatEmbeddedServletContainerFactory containerFactory = new TomcatEmbeddedServletContainerFactory() {
-			@Override
-			protected void postProcessContext(Context context) {
-				// 생략
-			}
-		};
+    	TomcatEmbeddedServletContainerFactory containerFactory = new TomcatEmbeddedServletContainerFactory() {
+		@Override
+		protected void postProcessContext(Context context) {
+			// 생략
+		}
+	};
 
-		containerFactory.setPort(8081);
+	containerFactory.setPort(8081);
 			
         Connector connector = new Connector(containerFactory.DEFAULT_PROTOCOL);
         connector.setPort(8082);
         containerFactory.addAdditionalTomcatConnectors(connector);
 		
-		containerFactory.setContextPath("/contextPath");
+	containerFactory.setContextPath("/contextPath");
 		
-		return containerFactory;
+	return containerFactory;
     }
 }
 
